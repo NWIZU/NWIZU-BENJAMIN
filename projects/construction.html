@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+git init<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engi_Ben_Construction</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; color: #333; }
+
+    header {
+      background: #1e2a38; color: #fff;
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 1rem 2rem;
+      position: fixed; width:100%; z-index:1000;
+    }
+    .logo { font-size:1.5rem; font-weight:bold; }
+    nav ul { list-style:none; display:flex; gap:1rem; }
+    nav a, .auth-btn {
+      color:#fff; text-decoration:none; cursor:pointer;
+    }
+    .auth-btn {
+      background:#f0a500; padding:0.5rem 1rem;
+      border-radius:5px;
+    }
+    .auth-btn:hover { background:#cf8f00; }
+
+    .hero {
+      position:relative; height:90vh; overflow:hidden;
+      margin-top:70px;
+    }
+    .slide {
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      background-size:cover; background-position:center;
+      opacity:0; transition: opacity 1s;
+    }
+    .slide.active { opacity:1; }
+    .overlay {
+      position:absolute; top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.5); z-index:1;
+    }
+    .hero-content {
+      position:relative; z-index:2;
+      height:100%;
+      display:flex; align-items:center;
+      justify-content:center; flex-direction:column;
+      text-align:center; color:#fff;
+    }
+
+    .hero-content h1 { font-size:3rem; margin-bottom:1rem; }
+    .hero-content p { font-size:1.2rem; margin-bottom:1.5rem; }
+    .btn-primary {
+      background:#f0a500; padding:0.75rem 1.5rem;
+      color:#1e2a38; text-decoration:none;
+      border-radius:5px; font-weight:bold;
+    }
+    .btn-primary:hover { background:#cf8f00; }
+
+    section { padding:4rem 2rem; max-width:1000px; margin:auto; }
+    section h2 { text-align:center; margin-bottom:2rem; color:#1e2a38; }
+    .grid { display:grid; gap:2rem; }
+    .card {
+      background:#fff; padding:2rem;
+      border-radius:8px;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .modal {
+      display:none; position:fixed; top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.6);
+      align-items:center; justify-content:center;
+      z-index:2000;
+    }
+    .modal-content {
+      background:#fff; padding:2rem;
+      border-radius:8px; max-width:400px;
+      width:90%; position:relative;
+    }
+    .modal-content h2 { margin-bottom:1rem; }
+    .modal-content input {
+      width:100%; padding:0.75rem;
+      margin-bottom:1rem;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+    .modal-content button {
+      width:100%; padding:0.75rem;
+      background:#1e2a38; color:#fff;
+      border:none; border-radius:5px;
+      font-weight:bold;
+    }
+    .close-btn {
+      position:absolute; top:10px; right:15px;
+      cursor:pointer; font-size:1.2rem;
+    }
+
+    footer {
+      background:#1e2a38; color:#fff;
+      text-align:center; padding:1.5rem;
+      margin-top:2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Engi_Ben_Construction</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+      </ul>
+    </nav>
+    <div>
+      <span class="auth-btn" id="signInBtn">Sign In</span>
+      <span class="auth-btn" id="signUpBtn">Sign Up</span>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="slide active" style="background-image:url('https://images.pexels.com/photos/4476327/pexels-photo-4476327.jpeg');"></div>
+    <div class="slide" style="background-image:url('https://images.pexels.com/photos/5854195/pexels-photo-5854195.jpeg');"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1581091870622-2b51a9d84a87?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Building Tomorrow, Today</h1>
+      <p>Your trusted partner in construction & professional training</p>
+      <a href="#services" class="btn-primary">Explore Services</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="card">
+      <p>We specialize in structural engineering, project management, and training for future professionals. With over 10 years of experience, Engi_Ben_Construction delivers excellence in every project.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+      <div class="card"><h3>Structural Design</h3><p>Safe and efficient designs for all types of buildings.</p></div>
+      <div class="card"><h3>Site Supervision</h3><p>On-site engineering support to ensure high quality and safety standards.</p></div>
+      <div class="card"><h3>Training & Mentorship</h3><p>Equipping engineers with skills in structural analysis and site safety.</p></div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div class="modal" id="signInModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeSignIn">&times;</span>
+      <h2>Sign In</h2>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button>Login</button>
+    </div>
+  </div>
+
+  <div class="modal" id="signUpModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeSignUp">&times;</span>
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button>Register</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Engi.Ben.Construction. All rights reserved.</p>
+    <p>Contact: nwizub49@gmail.com | +234‑8135112287</p>
+  </footer>
+
+  <script>
+    // Slideshow
+    const slides = document.querySelectorAll('.slide');
+    let idx = 0;
+    setInterval(() => {
+      slides[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+    }, 4000);
+
+    // Modals
+    const signInBtn = document.getElementById('signInBtn'),
+          signUpBtn = document.getElementById('signUpBtn'),
+          signInModal = document.getElementById('signInModal'),
+          signUpModal = document.getElementById('signUpModal'),
+          closeSignIn = document.getElementById('closeSignIn'),
+          closeSignUp = document.getElementById('closeSignUp');
+
+    signInBtn.onclick = () => signInModal.style.display = 'flex';
+    signUpBtn.onclick = () => signUpModal.style.display = 'flex';
+    closeSignIn.onclick = () => signInModal.style.display = 'none';
+    closeSignUp.onclick = () => signUpModal.style.display = 'none';
+
+    window.onclick = e => {
+      if (e.target === signInModal) signInModal.style.display = 'none';
+      if (e.target === signUpModal) signUpModal.style.display = 'none';
+    };
+  </script>
+
+</body>
+</html>
